@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user',[UserController::class,'user'])->name('users');
+Route::get('user/delete/{user_id}',[UserController::class,'user_delete'])->name('user.delete');

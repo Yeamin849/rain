@@ -6,6 +6,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h1>User List</h1>
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{session('success')}}
+                            </div>
+                        @endif
                     </div>
                     <div class="card-body">
                         <table class="table">
@@ -21,8 +26,8 @@
                                 <td>{{$sl+1}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->created_at}}</td>
-                                <td><a class="btn btn-danger">Delete</a></td>
+                                <td>{{$user->created_at->diffForHumans()}}</td>
+                                <td><a href="{{route('user.delete',$user->id)}}" class="btn btn-danger">Delete</a></td>
                             </tr>                          
                             @endforeach
                         </table>

@@ -12,4 +12,8 @@ class UserController extends Controller
         
        return view('Admin.Users.users_list',compact('users'));
     }
+    function user_delete($user_id){
+        User::find($user_id)->delete();
+        return back()->with('success','User Delete!');
+    }
 }
